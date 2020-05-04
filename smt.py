@@ -16,9 +16,14 @@ a=0
 async def echo(message: types.Message):
     a=random.randint(-20,40)
     if (a==0):
-        await message.answer('Не ма писки')
+        text="Не ма писки"
+        id='@'+str(message.from_user.username)
+        text=id+' '+text
+        await message.answer(text)
     if (a<0):
         text="Неправильна писка какие-то "+str(a)+" мм"
+        id='@'+str(message.from_user.username)
+        text=id+' '+text
         await message.answer(text)
     '''if (a>0):
         if (a>max):
