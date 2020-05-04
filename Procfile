@@ -1,1 +1,1 @@
-worker: python cmt.py
+worker: python smt.py
