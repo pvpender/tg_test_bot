@@ -28,7 +28,8 @@ async def echo(message: types.Message):
             await message.answer(text)'''
     if (a>0):
         text="Твой писка "+str(a)+" мм!"
-        await message.answer(message.from_user.id)
+        id=message.forward_from_message_id
+        await message.answer(text, id)
 
 
 
