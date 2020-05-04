@@ -25,9 +25,9 @@ async def send_mes(message: ai.types.message):
 @dp.message_handler(ai.dispatcher.filters.Text(equals=["Да","Нет"]))
 async def ans(message: ai.types.message):
     if (message.text == "Да"):
-        await message.answer("Хорошо!", reply_markup=ai.types.ReplyKeyboardRemove)
-    else :
-        await message.answer("Ну и пошёл вон!", reply_markup=ai.types.ReplyKeyboardRemove)
+        await message.answer("Хорошо!")
+    else:
+        await message.answer("Ну и пошёл вон!")
 
 
 if __name__ =='__main__':
