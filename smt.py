@@ -1,7 +1,7 @@
 
 import logging
 from aiogram import Bot, Dispatcher, executor, types
-
+import random
 API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
@@ -10,10 +10,28 @@ logging.basicConfig(level=logging.INFO)
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
-@dp.message_handler(commands= ['start'])
-async def echo(message: types.Message):
+min=4
+max=5
+a=0
+@dp.message_handler(commands= ['dik'])
+async def echo(message: types.Message,min, max):
+    a=random.randint(0,20)
+    if (a==0):
+        await message.answer('Не ма писки')
+    if (a>0):
+        if (a>max):
+            max=a
+            text="У тебя самый большой писка, целых "+str(a)+" мм!"
+            await message.answer(text)
+        if (a<min):
+            min=a
+            text="У тебя самый маленький писка, всего "+str(a)+" мм!"
+            await message.answer(text)
+        else:
+            text="Твой писка "+str(a)+" мм!"
+            await message.answer(text)
 
-    await message.answer('sds')
+
 
 
 if __name__ == '__main__':
