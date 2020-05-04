@@ -18,7 +18,7 @@ async def echo(message: types.Message):
     a=random.randint(0,20)
     if (a==0):
         await message.answer('Не ма писки')
-    if (a>0):
+    '''if (a>0):
         if (a>max):
             max=a
             text="У тебя самый большой писка, целых "+str(a)+" мм!"
@@ -26,10 +26,10 @@ async def echo(message: types.Message):
         if (a<min):
             min=a
             text="У тебя самый маленький писка, всего "+str(a)+" мм!"
-            await message.answer(text)
-        else:
-            text="Твой писка "+str(a)+" мм!"
-            await message.answer(text)
+            await message.answer(text)'''
+    if (a>0):
+        text="Твой писка "+str(a)+" мм!"
+        await message.answer(text)
 
 
 
