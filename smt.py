@@ -28,7 +28,7 @@ async def echo(message: types.Message):
             await message.answer(text)'''
     if (a>0):
         text="Твой писка "+str(a)+" мм!"
-        id='@'+str(types.fields.BaseField())
+        id=message.from_user.username
         await message.answer(id)
 
 
