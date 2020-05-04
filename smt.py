@@ -14,7 +14,7 @@ min=4
 max=5
 a=0
 @dp.message_handler(commands= ['dik'])
-async def echo(message: types.Message,min, max):
+async def echo(message: types.Message):
     a=random.randint(0,20)
     if (a==0):
         await message.answer('Не ма писки')
