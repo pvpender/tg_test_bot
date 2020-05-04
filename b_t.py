@@ -10,7 +10,7 @@ bot=ai.Bot(token=TOKEN)
 dp=ai.Dispatcher(bot )
 @dp.message_handler(commands=['start'])
 async def send_mes(message: ai.types.message):
-    text="Привет тебе"+ str(random.randint(1,100))+" ?"
+    text="Привет тебе "+ str(random.randint(1,100))+"?"
     await message.answer(text)
   
 
