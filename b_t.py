@@ -11,6 +11,8 @@ dp=ai.Dispatcher(bot )
 @dp.message_handler(commands=['start'])
 async def send_mes(message: ai.types.message):
     await message.answer(a)
+    a=random.randint(1,100)
+
 
 if __name__ =='__main__':
     ai.executor.start_polling(dp, skip_updates= True )
