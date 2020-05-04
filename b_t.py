@@ -22,7 +22,10 @@ async def send_mes(message: ai.types.message):
     text = "Привет, тебе " + str(random.randint(1, 100)) + "?"
     await message.answer(text, reply_markup=menu)
 
-
+@dp.message_handler(ai.dispatcher.filters.Text(equals=["Да","Нет"]))
+async def ans(message: ai.types.message):
+    if (ai.types.message == "Да"):
+        await message.answer("Ok",reply_markup=ai.types.ReplyKeyboardRemove)
 
 
 if __name__ =='__main__':
