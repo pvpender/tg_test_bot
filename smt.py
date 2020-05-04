@@ -10,8 +10,7 @@ logging.basicConfig(level=logging.INFO)
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
-min=4
-max=5
+
 a=0
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
@@ -29,7 +28,7 @@ async def echo(message: types.Message):
             await message.answer(text)'''
     if (a>0):
         text="Твой писка "+str(a)+" мм!"
-        await message.answer(text)
+        await message.answer(message.from_user.id)
 
 
 
