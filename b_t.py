@@ -3,7 +3,7 @@ import logging
 import random
 TOKEN='1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
-a=77
+a=random.randint(1,100)
 
 logging.basicConfig(level=logging.INFO )
 bot=ai.Bot(token=TOKEN)
