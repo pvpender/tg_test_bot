@@ -2,8 +2,11 @@ import aiogram as ai
 import logging
 import random
 TOKEN='1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
+def rand():
+    a=random.randint(1,100)
+    time.sleep(0.5)
+    rand()
 
-a=random.randint(1,100)
 
 logging.basicConfig(level=logging.INFO )
 bot=ai.Bot(token=TOKEN)
@@ -15,4 +18,6 @@ async def send_mes(message: ai.types.message):
 
 
 if __name__ =='__main__':
+   
     ai.executor.start_polling(dp, skip_updates= True )
+    rand()
