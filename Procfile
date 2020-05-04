@@ -1,1 +1,1 @@
-worker: python smt.py
+worker: python b_t.py
