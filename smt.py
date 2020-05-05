@@ -2,6 +2,7 @@
 import logging
 from aiogram import Bot, Dispatcher, executor, types
 import random
+import time
 API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
@@ -78,6 +79,7 @@ async def whois(m: types.message):
 async def echo(message: types.Message):
     await message.answer("otprav")
     if (message.text!="/sviz"):
+       time.sleep(1)
        await message.forward(898287979)
        await message.answer("spasibo")
 if __name__ == '__main__':
