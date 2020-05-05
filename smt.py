@@ -40,7 +40,11 @@ async def echo(message: types.Message):
         id='@'+str(id1)
         text=id+' '+text
         await message.answer(text)
-
+    if (a>0):
+        text="Твой писка "+str(a)+" мм!"
+        id='@'+str(message.from_user.username)
+        text=id+' '+text
+        await message.answer(text)
 
 
 if __name__ == '__main__':
