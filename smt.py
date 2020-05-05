@@ -12,7 +12,6 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
 a=0
-@dp
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
     a=random.randint(0,20)
