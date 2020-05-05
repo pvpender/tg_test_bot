@@ -76,9 +76,10 @@ async def whois(m: types.message):
     await m.reply(str(fwd))
 @dp.message_handler(commands= ['sviz'])
 async def echo(message: types.Message):
-    message.answer("otprav")
-    await message.forward(898287979)
-    await message.answer("spasibo")
+    await message.answer("otprav")
+    if (message.text!="/sviz"):
+       await message.forward(898287979)
+       await message.answer("spasibo")
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
