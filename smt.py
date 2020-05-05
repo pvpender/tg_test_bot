@@ -70,7 +70,10 @@ async def check(message: types.message ):
         id = '@' + str(message.forward_id)
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
-
+@dp.message_handler(lambda m: m.reply_to_message and m.reply_to_message.forward_from, commands=['whois'])
+async def whois(m: types.message):
+    fwd = m.reply_to_message.forward_from
+    await m.reply(str(fwd))
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
