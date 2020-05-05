@@ -45,15 +45,15 @@ async def check(message: types.message ):
     a=random.randint(-20,40)
     if (a<0):
         id = '@' + str(message.reply_to_message.from_user.username)
-        text = "У ",id," Неправильна писка, всего " + str(a) + " мм!"
+        text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
         await message.answer(text)
     if(a==0):
         id = '@' + str(message.reply_to_message.from_user.username)
-        text = "У ", id, " не ма писка"
+        text = "У "+id+ " не ма писка"
         await message.answer(text)
     if(a>0):
         id = '@' + str(message.reply_to_message.from_user.username)
-        text = "У ", id, " писка ",str(a)," мм!"
+        text = "У "+id+ " писка ",str(a)," мм!"
         await message.answer(text)
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
