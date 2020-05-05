@@ -80,6 +80,7 @@ async def kvnjg(message: types.Message):
     await message.answer("otprav")
     While(message.text!="stop"):
        await message.forward(898287979)
+       kvnjg(message)
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
