@@ -14,17 +14,9 @@ dp = Dispatcher(bot)
 a=0
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
-    a=random.randint(-20,40)
+    a=random.randint(0,20)
     if (a==0):
-        text="Не ма писки"
-        id='@'+str(message.from_user.username)
-        text=id+' '+text
-        await message.answer(text)
-    if (a<0):
-        text="Неправильна писка какие-то "+str(a)+" мм"
-        id='@'+str(message.from_user.username)
-        text=id+' '+text
-        await message.answer(text)
+        await message.answer('Не ма писки')
     '''if (a>0):
         if (a>max):
             max=a
@@ -35,22 +27,27 @@ async def echo(message: types.Message):
             text="У тебя самый маленький писка, всего "+str(a)+" мм!"
             await message.answer(text)'''
     if (a>0):
-         if(len(message.reply_to_message.from_user.username)>0):
-                  id1=message.reply_to_message.from_user.username
-                  id='@'+str(id1)
-                  text=id+' '+text
-                  await message.answer(text)
-         else:
-                  text="Твой писка "+str(a)+" мм!"
-                  id='@'+str(message.from_user.username)
-                  text=id+' '+text
-                  await message.answer(text)
-        '''text="Твой писка "+str(a)+" мм!"
-        id1=message.reply_to_message.from_user.username
-        id='@'+str(id1)
-        text=id+' '+text
-        await message.answer(text)'''
-    
+        if (len(message.reply_to_message.from_user.username) > 0):
+
+            id1 = message.reply_to_message.from_user.username
+
+            id = '@' + str(id1)
+
+            text = id + ' ' + text
+
+            await message.answer(text)
+
+        else:
+
+            text = "Твой писка " + str(a) + " мм!"
+
+            id = '@' + str(message.from_user.username)
+
+            text = id + ' ' + text
+
+            await message.answer(text)
+
+
 
 
 if __name__ == '__main__':
