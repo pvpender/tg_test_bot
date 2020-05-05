@@ -35,16 +35,22 @@ async def echo(message: types.Message):
             text="У тебя самый маленький писка, всего "+str(a)+" мм!"
             await message.answer(text)'''
     if (a>0):
-        text="Твой писка "+str(a)+" мм!"
+         if(len(message.reply_to_message.from_user.username)>0):
+                  id1=message.reply_to_message.from_user.username
+                  id='@'+str(id1)
+                  text=id+' '+text
+                  await message.answer(text)
+         else:
+                  text="Твой писка "+str(a)+" мм!"
+                  id='@'+str(message.from_user.username)
+                  text=id+' '+text
+                  await message.answer(text)
+        '''text="Твой писка "+str(a)+" мм!"
         id1=message.reply_to_message.from_user.username
         id='@'+str(id1)
         text=id+' '+text
-        await message.answer(text)
-    if (a>0):
-        text="Твой писка "+str(a)+" мм!"
-        id='@'+str(message.from_user.username)
-        text=id+' '+text
-        await message.answer(text)
+        await message.answer(text)'''
+    
 
 
 if __name__ == '__main__':
