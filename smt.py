@@ -14,15 +14,12 @@ dp = Dispatcher(bot)
 a=0
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
-    a=random.randint(-20,40)
+    a=random.randint(0,20)
     if (a==0):
-            text = "Не ма писка"
-            id = '@' + str(message.from_user.username)
-
-            text = id + ' ' + text
-
-            await message.answer(text)
-            
+        text = "Не ма писка"
+        id = '@' + str(message.from_user.username)
+        text = id + ' ' + text
+        await message.answer(text)
     '''if (a>0):
         if (a>max):
             max=a
@@ -32,28 +29,32 @@ async def echo(message: types.Message):
             min=a
             text="У тебя самый маленький писка, всего "+str(a)+" мм!"
             await message.answer(text)'''
-    if (a<0):
-        
-            text = "Неправильна писка, всего " + str(a) + " мм!"
-            id = '@' + str(message.from_user.username)
-
-            text = id + ' ' + text
-
-            await message.answer(text)
+    if (a < 0):
+        text = "Неправильна писка, всего " + str(a) + " мм!"
+        id = '@' + str(message.from_user.username)
+        text = id + ' ' + text
+        await message.answer(text)
 
     if (a>0):
-       
-
-            text = "Твой писка " + str(a) + " мм!"
-            id = '@' + str(message.from_user.username)
-
-            text = id + ' ' + text
-
-            await message.answer(text)
-
-
-
-
+        text="Твой писка "+str(a)+" мм!"
+        id='@'+str(message.from_user.username)
+        text=id+' '+text
+        await message.answer(text)
+@dp.message_handler(commands= ['an_dik'])
+async def check(message: types.message ):
+    a=random.randint(-20,40)
+    if (a<0):
+        id = '@' + str(message.reply_to_message.from_user.username)
+        text = "У ",id," Неправильна писка, всего " + str(a) + " мм!"
+        await message.answer(text)
+    if(a==0):
+        id = '@' + str(message.reply_to_message.from_user.username)
+        text = "У ", id, " не ма писка"
+        await message.answer(text)
+    if(a>0):
+        id = '@' + str(message.reply_to_message.from_user.username)
+        text = "У ", id, " писка ",str(a)," мм!"
+        await message.answer(text)
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
