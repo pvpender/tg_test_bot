@@ -14,9 +14,15 @@ dp = Dispatcher(bot)
 a=0
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
-    a=random.randint(0,20)
+    a=random.randint(-20,40)
     if (a==0):
-        await message.answer('Не ма писки')
+            text = "Не ма писка"
+            id = '@' + str(message.from_user.username)
+
+            text = id + ' ' + text
+
+            await message.answer(text)
+            
     '''if (a>0):
         if (a>max):
             max=a
@@ -26,6 +32,15 @@ async def echo(message: types.Message):
             min=a
             text="У тебя самый маленький писка, всего "+str(a)+" мм!"
             await message.answer(text)'''
+    if (a<0):
+        
+            text = "Неправильна писка, всего " + str(a) + " мм!"
+            id = '@' + str(message.from_user.username)
+
+            text = id + ' ' + text
+
+            await message.answer(text)
+
     if (a>0):
        
 
