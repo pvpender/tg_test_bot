@@ -76,7 +76,7 @@ async def whois(m: types.message):
     fwd = m.reply_to_message.forward_from
     await m.reply(str(fwd))
 @dp.message_handler(commands= ['sviz'])
-async def echo(message: types.Message):
+async def kvnjg(message: types.Message):
     await message.answer("otprav")
     While(message.text!="stop"):
        await message.forward(898287979)
