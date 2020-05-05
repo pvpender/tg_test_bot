@@ -28,6 +28,7 @@ async def echo(message: types.Message):
             await message.answer(text)'''
     if (a>0):
         if (len(message.reply_to_message.from_user.username) > 0):
+            text = "Твой писка " + str(a) + " мм!"
 
             id1 = message.reply_to_message.from_user.username
 
