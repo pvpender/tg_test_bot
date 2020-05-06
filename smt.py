@@ -78,6 +78,9 @@ async def whois(m: types.message):
 @dp.message_handler(commands= ['sviz'])
 async def kvnjg(message: types.Message):
     await message.answer("otprav")
+    @dp.message_hundler()
+    async def dfw(message: types.Message):
+         await message.forward(898287979)
     
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
