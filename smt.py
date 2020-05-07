@@ -86,9 +86,12 @@ async def check(message: types.message ):
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[0])
+@dp.message_handler(state='*', commands= ['sviz'])
+
 
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
+     await msg.answer(msg.text)
      await msg.forward(898287979)
 
 @dp.message_handler(state=TS.T_S1)
@@ -97,10 +100,7 @@ async def ustan(msg: types.message):
     time.sleep(0.3)
     await state.set_state(TS.all()[0])
 
-@dp.message_handler(state=TS.T_S1,  commands= ['stop'])
-async def stop(msg: types.message):
-    state = dp.current_state(user=msg.from_user.id)
-    await state.reset_state()
+
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
