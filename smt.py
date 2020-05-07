@@ -94,6 +94,12 @@ async def otp(msg: types.message):
 async def otpravka(msg: types.message):
      await msg.answer(msg.text)
      await msg.forward(898287979)
+    
+@dp.message_handler(state='*',commands= ['st'])
+async def st(msg: types.message):
+    state = dp.current_state(user=msg.from_user.id)
+    await state.reset_state()
+    await msg.answer('st')
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
