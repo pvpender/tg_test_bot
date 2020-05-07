@@ -86,7 +86,7 @@ async def check(message: types.message ):
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[0])
-    await msg.answer('rabotaet')
+    await msg.answer('Пожалуйста, отправте ваше предложение ОДНИМ сообщением. Если сообщение успешно отправиться - вам придёт об этом сообщение. Если нет - попробуйте ещё раз.')
 
 
 
@@ -96,12 +96,14 @@ async def otpravka(msg: types.message):
      await msg.answer(msg.text)
      await msg.forward(898287979)
      await state.reset_state()
-@dp.message_handler(state='*',commands= ['st'])
+     await msg.answer('Спасибо за ваше предложение! Команда поддержки рассмотрит его!')
+
+
+'''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.reset_state()
-    await msg.answer('st')
-
+    await msg.answer('st')'''
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
