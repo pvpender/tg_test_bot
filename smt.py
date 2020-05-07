@@ -5,6 +5,7 @@ from aiogram.utils.helper import  Helper, HelperMode, ListItem
 from aiogram.contrib.fsm_storage.memory import  MemoryStorage
 from aiogram.contrib.middlewares.logging import  LoggingMiddleware
 import random
+import time
 API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
@@ -85,14 +86,20 @@ async def check(message: types.message ):
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[0])
-    await msg.answer('готово')
+@dp.message_handler(state='*', commands= ['sviz'])
+
+
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
      await msg.forward(898287979)
+
 @dp.message_handler(state=TS.T_S1)
 async def ustan(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
+    time.sleep(0.3)
     await state.set_state(TS.all()[0])
+
+
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
