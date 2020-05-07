@@ -86,7 +86,7 @@ async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[0])
     await msg.answer('готово')
-@dp.message_handler(state=TS.T_S1)
+@dp.message_handler()
 async def otpravka(msg: types.message):
     await msg.answer(msg.text)
 if __name__ == '__main__':
