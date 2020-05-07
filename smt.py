@@ -95,11 +95,6 @@ async def otpravka(msg: types.message):
      await msg.answer(msg.text)
      await msg.forward(898287979)
 
-@dp.message_handler(state=TS.T_S1)
-async def ustan(msg: types.message):
-    state = dp.current_state(user=msg.from_user.id)
-    time.sleep(0.3)
-    await state.set_state(TS.all()[0])
 
 @dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
