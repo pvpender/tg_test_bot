@@ -92,9 +92,10 @@ async def otp(msg: types.message):
 
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
+     state = dp.current_state(user=msg.from_user.id)
      await msg.answer(msg.text)
      await msg.forward(898287979)
-    
+     await state.reset_state()
 @dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
