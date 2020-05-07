@@ -88,7 +88,7 @@ async def otp(msg: types.message):
     await msg.answer('готово')
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
-    await msg.answer(msg.text)
+     await msg.forward(898287979)
 @dp.message_handler(state=TS.T_S1)
 async def ustan(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
