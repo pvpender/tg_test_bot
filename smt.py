@@ -1,18 +1,28 @@
 
 import logging
 from aiogram import Bot, Dispatcher, executor, types
+from aiogram.utils.helper import  Helper, HelperMode, ListItem
+from aiogram.contrib.fsm_storage.memory import  MemoryStorage
+from aiogram.contrib.middlewares.logging import  LoggingMiddleware
 import random
-import time
 API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
+class TS(Helper):
+    mode = HelperMode.snake_case
+    T_S1 =ListItem
+
+
+
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot)
+dp = Dispatcher(bot, storage= MemoryStorage())
+dp.middleware.setup(LoggingMiddleware())
 
 a=0
+
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
     a=random.randint(0,20)
@@ -71,17 +81,13 @@ async def check(message: types.message ):
         id = '@' + str(message.forward_id)
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
-@dp.message_handler(lambda m: m.reply_to_message and m.reply_to_message.forward_from, commands=['whois'])
-async def whois(m: types.message):
-    fwd = m.reply_to_message.forward_from
-    await m.reply(str(fwd))
-@dp.message_handler(commands= ['sviz'])
-async def kvnjg(message: types.message):
-    await message.answer("otprav")
-    @dp.message_hundler()
-    async def dfw(message: types.message):
-         await message.forward(898287979)
-    
+@dp.message_handler(state='*', commands= ['sviz'])
+async def otp(msg: types.message):
+    state = dp.current_state(user=msg.from_user.id)
+    await state.set_state(TS.all()[0])
+@dp.message_handler(state=TS.T_S1)
+async def otpravka(msg: types.message):
+    await msg.forward(898287979)
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
