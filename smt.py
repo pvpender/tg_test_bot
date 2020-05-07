@@ -86,7 +86,7 @@ async def check(message: types.message ):
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[0])
-@dp.message_handler(state='*', commands= ['sviz'])
+
 
 
 @dp.message_handler(state=TS.T_S1)
