@@ -93,7 +93,6 @@ async def otp(msg: types.message):
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
      state = dp.current_state(user=msg.from_user.id)
-     await msg.answer(msg.text)
      await msg.forward(898287979)
      await state.reset_state()
      await msg.answer('Спасибо за ваше предложение! Команда поддержки рассмотрит его!')
