@@ -100,7 +100,10 @@ async def ustan(msg: types.message):
     time.sleep(0.3)
     await state.set_state(TS.all()[0])
 
-
+@dp.message_handler(state='*',commands= ['st'])
+async def st(msg: types.message):
+    state = dp.current_state(user=msg.from_user.id)
+    await state.reset_state()
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
