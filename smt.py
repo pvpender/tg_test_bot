@@ -76,10 +76,10 @@ async def whois(m: types.message):
     fwd = m.reply_to_message.forward_from
     await m.reply(str(fwd))
 @dp.message_handler(commands= ['sviz'])
-async def kvnjg(message: types.Message):
+async def kvnjg(message: types.message):
     await message.answer("otprav")
     @dp.message_hundler()
-    async def dfw(message: types.Message):
+    async def dfw(message: types.message):
          await message.forward(898287979)
     
 if __name__ == '__main__':
