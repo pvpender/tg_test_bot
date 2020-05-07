@@ -82,7 +82,7 @@ async def check(message: types.message ):
         id = '@' + str(message.forward_id)
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
-@dp.message_handler(state='*', commands= ['sviz'])
+@dp.message_handler(state='*', commands= ['sviz'], lambda m: m.chat.type=='private')
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[0])
