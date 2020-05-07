@@ -88,7 +88,7 @@ async def otp(msg: types.message):
     await msg.answer('готово')
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
-    await msg.forward(898287979)
+    await msg.answer(msg.text)
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
