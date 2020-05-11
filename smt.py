@@ -26,7 +26,7 @@ a=0
 
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
-    a=random.randint(0,20)
+    a=random.randint(-20,40)
     if (a==0):
         text = "Не ма писка"
         id = '@' + str(message.from_user.username)
