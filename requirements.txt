@@ -7,7 +7,7 @@ Babel==2.8.0
 certifi==2018.1.18
 chardet==3.0.4
 distlib==0.3.0
-Django==1.10.6
+Django==1.11.29
 docutils==0.13.1
 filelock==3.0.12
 future==0.18.2
