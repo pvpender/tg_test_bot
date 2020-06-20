@@ -71,15 +71,15 @@ async def check(message: types.message ):
 async def check(message: types.message ):
     a=random.randint(-20,40)
     if (a<0):
-        id = '@' + str(message.reply_to_message.forward_from.id)
+        id = '@' + str(message.reply_to_message.forward_from.from_user.username)
         text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
         await message.answer(text)
     if(a==0):
-        id = '@' + str(message.reply_to_message.forward_from.id)
+        id = '@' + str(message.reply_to_message.forward_from.from_user.username)
         text = "У "+id+ " не ма писка"
         await message.answer(text)
     if(a>0):
-        id = '@' + str(message.reply_to_message.forward_from.id)
+        id = '@' + str(message.reply_to_message.forward_from.from_user.username)
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
