@@ -82,6 +82,14 @@ async def check(message: types.message ):
         id = '@' + str(message.reply_to_message.forward_from.from_user.username)
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
+        
+        
+@dp.message_handler(lambda m: m.reply_to_message and m.reply_to_message.forward_from, commands=['whois'])
+async def whois(m: Message):
+    fwd = m.reply_to_message.forward_from
+    await m.reply(str(fwd))       
+        
+ 
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
