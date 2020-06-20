@@ -83,7 +83,10 @@ async def check(message: types.message ):
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
         
- 
+@dp.message_handler(lambda m: m.reply_to_message and m.reply_to_message.forward_from, commands=['whois'])
+async def whois(msg: types.message):
+    fwd = msg.reply_to_message.forward_from
+    await msg.reply(str(fwd))   
         
  
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
