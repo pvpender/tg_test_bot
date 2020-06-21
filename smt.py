@@ -6,6 +6,7 @@ from aiogram.contrib.fsm_storage.memory import  MemoryStorage
 from aiogram.contrib.middlewares.logging import  LoggingMiddleware
 import random
 import time
+from peremen import ct
 API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
@@ -14,8 +15,8 @@ logging.basicConfig(level=logging.INFO)
 class TS(Helper):
     mode = HelperMode.snake_case
     T_S1 =ListItem()
-    Te = ListItem()
-TS[1]= 'lololol'
+
+
 
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
@@ -90,7 +91,9 @@ async def whois(msg: types.message):
         
 @dp.message_handler(commands = ['print'])
 async def pr(msg: types.message):
-    await msg.reply(T[1])
+    global ct
+    await msg.answer(ct)
+    ct = 'aaaaaaaa'
 
 
 
