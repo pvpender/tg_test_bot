@@ -94,7 +94,7 @@ async def pr(msg: types.message):
     global ct
     await msg.answer(ct)
 
-@dp.message_handler(id = 898287979,state='*', commands = ['izm'])
+@dp.message_handler(id = '898287979',state='*', commands = ['izm'])
 async def izm(msg: types.message ):
     state = dp.current_state(user=msg.from_user.id)
     await state.set_state(TS.all()[1])
