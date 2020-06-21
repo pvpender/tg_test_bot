@@ -89,9 +89,9 @@ async def whois(msg: types.message):
     await msg.reply(str(fwd))   
         
 @dp.message_handler(commands = ['print'])
-async def pr(msg: types.message, ct):
+async def pr(msg: types.message):
     await msg.reply(ct)
-    ct = 'kjk'
+  
 
 
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
