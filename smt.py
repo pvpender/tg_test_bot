@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 class TS(Helper):
     mode = HelperMode.snake_case
     T_S1 =ListItem()
-
+    T_S2 = ListItem()
 
 
 # Initialize bot and dispatcher
@@ -93,8 +93,20 @@ async def whois(msg: types.message):
 async def pr(msg: types.message):
     global ct
     await msg.answer(ct)
-    ct = 'aaaaaaaa'
 
+@dp.message_handler(state='*', commands = ['izm'])
+async def izm(msg: types.message ):
+    state = dp.current_state(user=msg.from_user.id)
+    await state.set_state(TS.all()[1])
+    await msg.answer('heh')
+@dp.message_handler(state=TS.T_S2)
+async def izmen(msg=types.message):
+    state = dp.current_state(user=msg.from_user.id)
+    global ct
+    ct = msg.text
+    await state.reset_state()
+    await msg.answer('gotov')
+ 
 
 
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
