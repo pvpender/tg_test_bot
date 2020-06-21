@@ -15,7 +15,7 @@ class TS(Helper):
     mode = HelperMode.snake_case
     T_S1 =ListItem()
 
-
+ct = ' '
 
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
@@ -88,7 +88,12 @@ async def whois(msg: types.message):
     fwd = msg.reply_to_message.forward_from.username
     await msg.reply(str(fwd))   
         
- 
+@dp.message_handler(commands = ['print'])
+async def pr(msg: types.message, ct):
+    await msg.reply(ct)
+    ct = 'kjk'
+
+
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
 async def otp(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
