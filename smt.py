@@ -6,7 +6,7 @@ from aiogram.contrib.fsm_storage.memory import  MemoryStorage
 from aiogram.contrib.middlewares.logging import  LoggingMiddleware
 import random
 import time
-from peremen import ct
+
 API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
@@ -24,7 +24,7 @@ dp = Dispatcher(bot, storage= MemoryStorage())
 dp.middleware.setup(LoggingMiddleware())
 
 a=0
-
+ct = ' pip'
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
     a=random.randint(-20,40)
