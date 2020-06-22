@@ -57,7 +57,7 @@ async def echo(message: types.Message):
 async def check(message: types.message ):
     a=random.randint(-20,40)
     if (a<0):
-        id = '@' + str(message.reply_to_message.from_user.username)
+        id = '@' + str(message.reply_to_message.from_user.id)
         text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
         await message.answer(text)
     if(a==0):
@@ -65,7 +65,7 @@ async def check(message: types.message ):
         text = "У "+id+ " не ма писка"
         await message.answer(text)
     if(a>0):
-        id = '@' + str(message.reply_to_message.from_user.username)
+        id = '@' + str(message.reply_to_message.from_user.id)
         text = "У "+id+ " писка "+str(a)+" мм!"
         await message.answer(text)
 @dp.message_handler(commands= ['per_dik'])
@@ -86,7 +86,7 @@ async def check(message: types.message ):
         
 @dp.message_handler(lambda m: m.reply_to_message and m.reply_to_message.forward_from, commands=['whois'])
 async def whois(msg: types.message):
-    fwd = msg.reply_to_message.forward_from.username
+    fwd = msg.reply_to_message.forward_from.id
     await msg.reply(str(fwd))   
         
 @dp.message_handler(commands = ['print'])
