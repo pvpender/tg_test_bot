@@ -76,19 +76,25 @@ async def check(message: types.message ):
          await message.answer(text)
 @dp.message_handler(commands= ['per_dik'])
 async def check(message: types.message ):
-    a=random.randint(-20,40)
-    if (a<0):
+    if str(message.reply_to_message.forward_from.id) in wlis:
+        a = random.randint(1, 1000)
         id = '@' + str(message.reply_to_message.forward_from.username)
-        text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+        text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
         await message.answer(text)
-    if(a==0):
-        id = '@' + str(message.reply_to_message.forward_from.username)
-        text = "У "+id+ " не ма писка"
-        await message.answer(text)
-    if(a>0):
-        id = '@' + str(message.reply_to_message.forward_from.username)
-        text = "У "+id+ " писка "+str(a)+" мм!"
-        await message.answer(text)
+    else:
+     a=random.randint(-20,40)
+     if (a<0):
+         id = '@' + str(message.reply_to_message.forward_from.username)
+         text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+         await message.answer(text)
+     if(a==0):
+         id = '@' + str(message.reply_to_message.forward_from.username)
+         text = "У "+id+ " не ма писка"
+         await message.answer(text)
+     if(a>0):
+         id = '@' + str(message.reply_to_message.forward_from.username)
+         text = "У "+id+ " писка "+str(a)+" мм!"
+         await message.answer(text)
         
 @dp.message_handler(lambda m: m.reply_to_message and m.reply_to_message.forward_from, commands=['whois'])
 async def whois(msg: types.message):
