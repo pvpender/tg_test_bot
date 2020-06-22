@@ -29,32 +29,30 @@ ct = ' pip'
 wlis = ['859850095', '898287979']
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
-    a=random.randint(-20,40)
-    if (a==0):
-        text = "Не ма писка"
-        id = '@' + str(message.from_user.username)
-        text = id + ' ' + text
+    if str(message.from_user.id) in wlis:
+        a = random.randint(1, 1000)
+        id = '@' + str(message.reply_to_message.from_user.username)
+        text = "Уго,  " + id + " ! Твой писка целых " + str(a) + " метров!"
         await message.answer(text)
-    '''if (a>0):
-        if (a>max):
-            max=a
-            text="У тебя самый большой писка, целых "+str(a)+" мм!"
-            await message.answer(text)
-        if (a<min):
-            min=a
-            text="У тебя самый маленький писка, всего "+str(a)+" мм!"
-            await message.answer(text)'''
-    if (a < 0):
-        text = "Неправильна писка, всего " + str(a) + " мм!"
-        id = '@' + str(message.from_user.username)
-        text = id + ' ' + text
-        await message.answer(text)
+    else:
+     a=random.randint(-20,40)
+     if (a==0):
+         text = "Не ма писка"
+         id = '@' + str(message.from_user.username)
+         text = id + ' ' + text
+         await message.answer(text)
 
-    if (a>0):
-        text="Твой писка "+str(a)+" мм!"
-        id='@'+str(message.from_user.username)
-        text=id+' '+text
-        await message.answer(text)
+     if (a < 0):
+         text = "Неправильна писка, всего " + str(a) + " мм!"
+         id = '@' + str(message.from_user.username)
+         text = id + ' ' + text
+         await message.answer(text)
+
+     if (a>0):
+         text="Твой писка "+str(a)+" мм!"
+         id='@'+str(message.from_user.username)
+         text=id+' '+text
+         await message.answer(text)
 @dp.message_handler(commands= ['an_dik'])
 async def check(message: types.message ):
     if str(message.reply_to_message.from_user.id) in wlis:
