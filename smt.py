@@ -98,13 +98,7 @@ async def check(message: types.message ):
         
 @dp.message_handler(commands=['whois'])
 async def whois(msg: types.message):
-    if msg.reply_to_message.forward_from:
-      fwd = msg.reply_to_message.forward_from.id
-      await msg.answer(str(fwd))
-    elif msg.reply_to_message.from_user:
-        fwd = msg.reply_to_message.from_user.id
-        await msg.answer(str(fwd))
-    else:
+   
         fwd = msg.from_user.id
         await msg.answer(str(fwd))
         
