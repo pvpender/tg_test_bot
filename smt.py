@@ -96,7 +96,7 @@ async def check(message: types.message ):
          text = "У "+id+ " писка "+str(a)+" мм!"
          await message.answer(text)
         
-@dp.message_handler(lambda m: m.reply_to_message or m.reply_to_message.forward_from, commands=['whois'])
+@dp.message_handler(commands=['whois'])
 async def whois(msg: types.message):
     if m.reply_to_message.forward_from :
       fwd = msg.reply_to_message.forward_from.id
