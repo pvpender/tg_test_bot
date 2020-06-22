@@ -31,7 +31,7 @@ wlis = ['859850095', '898287979']
 async def echo(message: types.Message):
     if str(message.from_user.id) in wlis:
         a = random.randint(1, 1000)
-        id = '@' + str(messae.from_user.username)
+        id = '@' + str(message.from_user.username)
         text = "Уго,  " + id + " ! Твой писка целых " + str(a) + " метров!"
         await message.answer(text)
     else:
