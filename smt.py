@@ -25,6 +25,8 @@ dp.middleware.setup(LoggingMiddleware())
 
 a=0
 ct = ' pip'
+
+wlis = ['859850095', '898287979']
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
     a=random.randint(-20,40)
@@ -55,19 +57,25 @@ async def echo(message: types.Message):
         await message.answer(text)
 @dp.message_handler(commands= ['an_dik'])
 async def check(message: types.message ):
-    a=random.randint(-20,40)
-    if (a<0):
-        id = '@' + str(message.reply_to_message.from_user.id)
-        text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
-        await message.answer(text)
-    if(a==0):
+    if str(message.reply_to_message.from_user.id) in wlis:
+        a = random.randint(1, 1000)
         id = '@' + str(message.reply_to_message.from_user.username)
-        text = "У "+id+ " не ма писка"
+        text = "Уго! У"+id+" писка целых "+a+" метров!"
         await message.answer(text)
-    if(a>0):
-        id = '@' + str(message.reply_to_message.from_user.id)
-        text = "У "+id+ " писка "+str(a)+" мм!"
-        await message.answer(text)
+    else:
+     a=random.randint(-20,40)
+     if (a<0):
+         id = '@' + str(message.reply_to_message.from_user.username)
+         text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+         await message.answer(text)
+     if(a==0):
+         id = '@' + str(message.reply_to_message.from_user.username)
+         text = "У "+id+ " не ма писка"
+         await message.answer(text)
+     if(a>0):
+         id = '@' + str(message.reply_to_message.from_user.username)
+         text = "У "+id+ " писка "+str(a)+" мм!"
+         await message.answer(text)
 @dp.message_handler(commands= ['per_dik'])
 async def check(message: types.message ):
     a=random.randint(-20,40)
@@ -106,7 +114,6 @@ async def izmen(msg=types.message):
     ct = msg.text
     await state.reset_state()
     await msg.answer('gotov')
-
 
 
 @dp.message_handler(lambda m: m.chat.type=='private',state='*', commands= ['sviz'])
