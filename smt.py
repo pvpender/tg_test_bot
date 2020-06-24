@@ -26,7 +26,7 @@ dp.middleware.setup(LoggingMiddleware())
 a=0
 ct = ' pip'
 
-wlis = ['859850095', '898287979']
+wlis = ['898287979']
 @dp.message_handler(commands= ['dik'])
 async def echo(message: types.Message):
     if str(message.from_user.id) in wlis:
