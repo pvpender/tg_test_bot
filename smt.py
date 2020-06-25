@@ -35,7 +35,7 @@ async def echo(message: types.Message):
         text = "Уго,  " + id + " ! Твой писка целых " + str(a) + " световых лет!"
         await message.answer(text)
     else:
-     a=random.randint(-20,40)
+     a=random.randint(-200,40)
      if (a==0):
          text = "Не ма писка"
          id = '@' + str(message.from_user.username)
@@ -62,7 +62,7 @@ async def check(message: types.message ):
          text = "Уго! У "+id+" писка целых "+str(a)+" световых лет!"
          await message.answer(text)
      else:
-      a=random.randint(-20,40)
+      a=random.randint(-200,40)
       if (a<0):
           id = '@' + str(message.reply_to_message.from_user.username)
           text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
@@ -86,7 +86,7 @@ async def check(message: types.message ):
          text = "Уго! У "+id+" писка целых "+str(a)+" световых лет!"
          await message.answer(text)
      else:
-      a=random.randint(-20,40)
+      a=random.randint(-200,40)
       if (a<0):
           id = '@' + str(message.reply_to_message.forward_from.username)
           text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
