@@ -76,42 +76,39 @@ async def check(message: types.message ):
          await message.answer(text)
 @dp.message_handler(commands= ['per_dik'])
 async def check(message: types.message ):
-    if str(message.reply_to_message.forward_from.id) in wlis:
-        a = random.randint(1, 1000)
-        try:
-          id = '@' + str(message.reply_to_message.forward_from.username)
-        except:
-          id = '@закрытый_профиль'
-        text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
-        await message.answer(text)
-    else:
-     a=random.randint(-20,40)
-     try:
+    try:
+     if str(message.reply_to_message.forward_from.id) in wlis:
          id = '@' + str(message.reply_to_message.forward_from.username)
-     except:
-         id = '@закрытый_профиль'
-     if (a<0):
-
-         text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+         a = random.randint(1, 1000)
+         text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
          await message.answer(text)
-     if(a==0):
-         #id = '@' + str(message.reply_to_message.forward_from.username)
-         text = "У "+id+ " не ма писка"
-         await message.answer(text)
-     if(a>0):
-         #id = '@' + str(message.reply_to_message.forward_from.username)
-         text = "У "+id+ " писка "+str(a)+" мм!"
-         await message.answer(text)
+     else:
+      a=random.randint(-20,40)
+      if (a<0):
+          id = '@' + str(message.reply_to_message.forward_from.username)
+          text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+          await message.answer(text)
+      if(a==0):
+          id = '@' + str(message.reply_to_message.forward_from.username)
+          text = "У "+id+ " не ма писка"
+          await message.answer(text)
+      if(a>0):
+          id = '@' + str(message.reply_to_message.forward_from.username)
+          text = "У "+id+ " писка "+str(a)+" мм!"
+          await message.answer(text)
+    except:
+        await message.answer('Невозможно получить username человека, его профиль  закрыт')
         
 @dp.message_handler(commands=['whois'])
 async def whois(msg: types.message):
-    if msg.reply_to_message.forward_from:
-       fwd = msg.reply_to_message.forward_from.id
-       await msg.answer(str(fwd))
-    elif msg.reply_to_message.from_user:
-        fwd = msg.reply_to_message.from_user.id
+    try:
+     if msg.reply_to_message.forward_from:
+        fwd = msg.reply_to_message.forward_from.id
         await msg.answer(str(fwd))
-    elif msg.from_user:
+     elif msg.reply_to_message.from_user:
+         fwd = msg.reply_to_message.from_user.id
+         await msg.answer(str(fwd))
+    except:
         fwd = msg.from_user.id
         await msg.answer(str(fwd))
         
@@ -126,7 +123,7 @@ async def izm(msg: types.message ):
     await state.set_state(TS.all()[1])
     await msg.answer('heh')
 @dp.message_handler(state=TS.T_S2)
-async def izmen(msg=types.message):
+async def izmen(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
     global ct
     ct = msg.text
