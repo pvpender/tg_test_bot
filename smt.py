@@ -32,7 +32,7 @@ async def echo(message: types.Message):
     if str(message.from_user.id) in wlis:
         a = random.randint(1, 1000)
         id = '@' + str(message.from_user.username)
-        text = "Уго,  " + id + " ! Твой писка целых " + str(a) + " метров!"
+        text = "Уго,  " + id + " ! Твой писка целых " + str(a) + " световых лет!"
         await message.answer(text)
     else:
      a=random.randint(-20,40)
@@ -59,7 +59,7 @@ async def check(message: types.message ):
      if str(message.reply_to_message.from_user.id) in wlis:
          a = random.randint(1, 1000)
          id = '@' + str(message.reply_to_message.from_user.username)
-         text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
+         text = "Уго! У "+id+" писка целых "+str(a)+" световых лет!"
          await message.answer(text)
      else:
       a=random.randint(-20,40)
@@ -83,7 +83,7 @@ async def check(message: types.message ):
      if str(message.reply_to_message.forward_from.id) in wlis:
          id = '@' + str(message.reply_to_message.forward_from.username)
          a = random.randint(1, 1000)
-         text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
+         text = "Уго! У "+id+" писка целых "+str(a)+" световых лет!"
          await message.answer(text)
      else:
       a=random.randint(-20,40)
