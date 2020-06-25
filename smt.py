@@ -6,8 +6,10 @@ from aiogram.contrib.fsm_storage.memory import  MemoryStorage
 from aiogram.contrib.middlewares.logging import  LoggingMiddleware
 import random
 import time
+import os
 
-API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
+API_TOKEN = os.environ.get('B_T')
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
