@@ -97,7 +97,7 @@ async def check(message: types.message ):
           text = "У "+id+ " писка "+str(a)+" мм!"
           await message.answer(text)
     except:
-        await message.answer('Невозможно получить username человека, его профиль  закрыт')
+        await message.answer('Невозможно получить username человека, его профиль  закрыт или команда не является ответом на пересланное сообщение')
         
 @dp.message_handler(commands=['whois'])
 async def whois(msg: types.message):
