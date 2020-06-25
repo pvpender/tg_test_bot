@@ -55,25 +55,28 @@ async def echo(message: types.Message):
          await message.answer(text)
 @dp.message_handler(commands= ['an_dik'])
 async def check(message: types.message ):
-    if str(message.reply_to_message.from_user.id) in wlis:
-        a = random.randint(1, 1000)
-        id = '@' + str(message.reply_to_message.from_user.username)
-        text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
-        await message.answer(text)
-    else:
-     a=random.randint(-20,40)
-     if (a<0):
+    try:
+     if str(message.reply_to_message.from_user.id) in wlis:
+         a = random.randint(1, 1000)
          id = '@' + str(message.reply_to_message.from_user.username)
-         text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+         text = "Уго! У "+id+" писка целых "+str(a)+" метров!"
          await message.answer(text)
-     if(a==0):
-         id = '@' + str(message.reply_to_message.from_user.username)
-         text = "У "+id+ " не ма писка"
-         await message.answer(text)
-     if(a>0):
-         id = '@' + str(message.reply_to_message.from_user.username)
-         text = "У "+id+ " писка "+str(a)+" мм!"
-         await message.answer(text)
+     else:
+      a=random.randint(-20,40)
+      if (a<0):
+          id = '@' + str(message.reply_to_message.from_user.username)
+          text = "У "+id+" Неправильна писка, всего " + str(a) + " мм!"
+          await message.answer(text)
+      if(a==0):
+          id = '@' + str(message.reply_to_message.from_user.username)
+          text = "У "+id+ " не ма писка"
+          await message.answer(text)
+      if(a>0):
+          id = '@' + str(message.reply_to_message.from_user.username)
+          text = "У "+id+ " писка "+str(a)+" мм!"
+          await message.answer(text)
+    except:
+        await message.answer('Команда должна являться ответом на сообщение!')
 @dp.message_handler(commands= ['per_dik'])
 async def check(message: types.message ):
     try:
