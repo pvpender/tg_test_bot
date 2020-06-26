@@ -119,7 +119,7 @@ async def whois(msg: types.message):
 @dp.message_handler(commands = ['print'])
 async def pr(msg: types.message):
     global ct
-    await msg.answer_photo('https://github.com/pvpender/tg_test_bot/blob/master/21-11-37-1569325738_mi-mix-alpha.jpeg')
+    await msg.answer_photo('https://raw.githubusercontent.com/pvpender/tg_test_bot/master/21-11-37-1569325738_mi-mix-alpha.jpeg')
 
 @dp.message_handler(state='*', commands = ['izm'])
 async def izm(msg: types.message ):
