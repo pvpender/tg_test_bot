@@ -158,7 +158,8 @@ async def rul(message: types.message):
   await message.answer('Ого! Вы выбили легендарную письку 💀"Х*ёвая смерть"💀')
  elif (a>100) & (a<499):
   await message.answer('Мм... Вы выбили обычную письку 😷"Коронавирус"😷')
-
+ else:
+  await message.answer('Ничего!')
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
