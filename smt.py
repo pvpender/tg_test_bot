@@ -149,14 +149,15 @@ async def otpravka(msg: types.message):
      await msg.forward(898287979)
      await state.reset_state()
      await msg.answer('Спасибо за ваше предложение! Команда поддержки рассмотрит его!')
-
 @dp.message_handler(commands= ['dikruletka'])
 async def rul(message: types.message):
  a = random.randint(1,1000)
- if (a>5) and (a<10):
-  await message.answer('Ого! Вы  выбили редкую письку 🐝"Электрический улей"🐝')
- else:
-  await message.answer('ничего')
+ if (a>900) & (a<1000):
+  await message.answer('Мм... Вы  выбили обычную письку 🥔"Мистер картошка"🥔')
+ elif a == 1:
+  await message.answer('Ого! Вы выбили легендарную письку 💀"Х*ёвая смерть"💀')
+ elif (a>100) & (a<499):
+  await message.answer('Мм... Вы выбили обычную письку 😷"Коронавирус"😷')
 
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
