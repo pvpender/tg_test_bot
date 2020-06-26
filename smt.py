@@ -179,6 +179,8 @@ async def rul(message: types.message):
   await message.answer('Ух! Вы выбили мифич. письку 🌈"Обдавбався"🌈')
  elif (a>181) & (a<188):
   await message.answer('Ох! Вы выбили особенную письку 👴🏿"Флойд"👴🏿 ')
+ elif (a>130) & (a<180):
+  await message.answer('О! Вы выбили победителя конкурса 👴"Пожилой дед Шер"👴')
  else:
   await message.answer('Ничего!')
 '''@dp.message_handler(state='*',commands= ['st'])
