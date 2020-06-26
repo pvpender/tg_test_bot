@@ -155,7 +155,7 @@ async def otp(msg: types.message):
     await msg.answer(
         'Пожалуйста, отправте ваше предложение ОДНИМ сообщением. Если сообщение успешно отправиться - вам придёт об этом сообщение. Если нет - попробуйте ещё раз. ВНИМАНИЕ: команда не работает корректно в групповых чатах, пишите боту в личное сообщение!')
 
-@dp.message_handler(lambda m: m.chat.type == 'public', state='*', commands=['sviz'])
+@dp.message_handler(lambda m: m.chat.type != 'private', state='*', commands=['sviz'])
 async def mistake(msg: types.message):
     await msg.answer('Команду /sviz нужно писать боту в личные сообщения!')
 
