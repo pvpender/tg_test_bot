@@ -153,7 +153,7 @@ async def otpravka(msg: types.message):
 @dp.message_handler(commands= ['dikruletka'])
 async def rul(message: types.message):
  a = random.randint(1,1000)
- if (a>5) and (a<1000):
+ if (a>5) and (a<10):
   await message.answer('Ого! Вы  выбили редкую письку 🐝"Электрический улей"🐝')
  else:
   await message.answer('ничего')
