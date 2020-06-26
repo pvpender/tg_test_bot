@@ -150,6 +150,13 @@ async def otpravka(msg: types.message):
      await state.reset_state()
      await msg.answer('Спасибо за ваше предложение! Команда поддержки рассмотрит его!')
 
+@dp.message_handler(commands= ['dikruletka'])
+async def rul(message: types.message):
+ a = random.randint(1,1000)
+ if a>5 & a<10:
+  await message.answer('Ого! Вы  выбили редкую письку 🐝"Электрический улей"🐝')
+ else:
+  await message.answer('ничего')
 
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
