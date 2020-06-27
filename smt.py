@@ -324,7 +324,7 @@ async def rul(message: types.message):
      await message.answer('ничего!')
 
 
-@dp.message_handler(commands=['inventory'])
+'''@dp.message_handler(commands=['inventory'])
 async def inv(msg: types.message):
     e = msg.from_user.id
     try:
@@ -352,7 +352,7 @@ async def inv(msg: types.message):
              🧠Мозговой штурм"🧠: %(20)i "%{"1":row[1], "2":row[2], "3":row[3], "4":row[4], "5":row[5], "6":row[6], "7":row[7], "8":row[8], "9":row[9], "10":row[10], "11":row[11], "12":row[12], "13":row[13], "14":row[14], "15":row[15], "16":row[16], "17":row[17], "18":row[18], "19":row[19], "20":row[20], "21":row[21], "22":row[22]}
         await msg.answer(s)
     except:
-        await msg.answer('вы ещё ни разу не крутили!')
+        await msg.answer('вы ещё ни разу не крутили!')'''
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
