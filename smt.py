@@ -6,8 +6,8 @@ from aiogram.contrib.middlewares.logging import LoggingMiddleware
 import random
 import time
 import os
-
-API_TOKEN = os.environ.get('B_T')
+import sqlite3 as sq
+API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -17,6 +17,7 @@ class TS(Helper):
     mode = HelperMode.snake_case
     T_S1 = ListItem()
     T_S2 = ListItem()
+    T_S3 = ListItem()
 
 
 # Initialize bot and dispatcher
@@ -26,9 +27,13 @@ dp.middleware.setup(LoggingMiddleware())
 
 a = 0
 ct = ' pip'
-
+usid = 0
 wlis = ['859850095', '898287979']
 
+con = sq.connect(':memory:')
+c = con.cursor()
+c.execute("CREATE TABLE em(id integer, pol integer)")
+con.commit()
 
 @dp.message_handler(commands=['dik'])
 async def echo(message: types.Message):
@@ -162,9 +167,34 @@ async def mistake(msg: types.message):
 @dp.message_handler(state=TS.T_S1)
 async def otpravka(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
+    c.execute("INSERT INTO em(id, pol) VALUES(?,?)",(msg.message_id, msg.from_user.id))
+    print(msg.message_id)
+    print(msg.from_user.id)
     await msg.forward(898287979)
     await state.reset_state()
     await msg.answer('Спасибо за ваше предложение! Команда поддержки рассмотрит его!')
+
+@dp.message_handler(commands=['otv'])
+async def ot(msg: types.message):
+    state = dp.current_state(user= msg.from_user.id)
+    global usid
+    usid = msg.reply_to_message.message_id
+    await state.set_state(TS.all()[2])
+    await msg.answer('Ответьте на сообщение пользователя')
+
+    @dp.message_handler(state=TS.T_S3)
+    async def to(msg):
+
+        c.execute("SELECT pol FROM em WHERE id =?",(usid-1,))
+        row = c.fetchone()
+        print(usid)
+        print(row)
+        r = row[0]
+        await msg.forward(r)
+        await state.reset_state()
+        await msg.answer('gotovo')
+
+
 
 
 @dp.message_handler(commands= ['dikruletka'])
@@ -186,29 +216,36 @@ async def rul(message: types.message):
   await message.answer('Мм... Вы выбили обычную письку 🐝"Электрический улей"🐝')
  elif (a>68) & (a<69):
   await message.answer('Ого! Вы выбили легендарную письку 🐲"Золотой дракон"🐲')
- elif (a>70) & (a<78):
+ elif (a>70) & (a<76):
   await message.answer('О! Вы выбили эпич. письку 🦅"Хабиб"🦅')
- elif (a>79) & (a<87):
+ elif (a>77) & (a<83):
   await message.answer('О! Вы выбили эпич. письку 🎲"Азарт"🎲')
- elif (a>88) & (a<96):
+ elif (a>84) & (a<89):
   await message.answer('Ух! Вы выбили мифич. письку 👑"Король"👑')
- elif (a>97) & (a<98):
+ elif (a>90) & (a<91):
   await message.answer('Ого! Вы выбили легендарную письку 🌈"Обдавбався"🌈')
- elif (a>99) & (a<104):
+ elif (a>92) & (a<97):
   await message.answer('Ох! Вы выбили особенную письку 👴🏿"Флойд"👴🏿 ')
- elif (a>105) & (a<110):
+ elif (a>98) & (a<103):
   await message.answer('Ух! Вы выбили мифич. письку 🧻"Ценный ресурс"🧻')
- elif (a>111) & (a<119):
+ elif (a>104) & (a<109):
   await message.answer('Ох! Вы выбили особенную письку 🏳‍🌈"Трубочист"🏳‍🌈')
- elif (a>120) & (a<125):
+ elif (a>110) & (a<115):
   await message.answer('Ух! Вы выбили мифич. письку ❓"Хто я?"❓')
- elif (a>126) & (a<136):
+ elif (a>116) & (a<126):
   await message.answer('Хах! Вы выбили письку победителя конкурса 🇦🇶"Пингвин Дениска ебать"🇦🇶')
- elif (a>137) & (a<147):
-  await message.answer('Хах! Вы выбили письку победителя конкурса 👴 "Пожилой дед Шер"👴')
+ elif (a>127) & (a<137):
+  await message.answer('Хах! Вы выбили письку победителя конкурса 👴"Пожилой дед Шер"👴')
+ elif (a>138) & (a<146):
+  await message.answer('Хм... Вы выбили редкую письку 🚀"Space Ч."🚀')
+ elif (a>147) & (a<155):
+  await message.answer('Хм... Вы выбили редкую письку 🧠"Мозговой штурм"🧠 ')
+ elif (a > 156) & (a < 164):
+     await message.answer('Хм... Вы выбили редкую письку 🃏"Цицерон"🃏')
+ elif (a > 165) & (a < 173):
+     await message.answer('Хм... Вы выбили редкую письку "..."')
  else:
-  await message.answer('Ничего!')
-
+     await message.answer('ничего!')
 
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
