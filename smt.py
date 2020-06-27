@@ -330,8 +330,8 @@ async def inv(msg: types.message):
     try:
         c1.execute("SELECT * FROM om WHERE id=?",(e,))
         row = c1.fetchone()
-        for i in range(1,23):
-            await msg.answer(row[i])
+        s = "%(1)i %(2)i %(3)i %(4)i %(5)i %(6)i"%{"1":row[0], "2":row[1], "3":row[2], "4":row[3], "5":row[4], "6":row[5]}
+        await msg.answer(s)
     except:
         await msg.answer('вы ещё ни разу не крутили!')
 '''@dp.message_handler(state='*',commands= ['st'])
