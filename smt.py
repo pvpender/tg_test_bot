@@ -210,7 +210,7 @@ async def rul(message: types.message):
  r = c1.fetchone()
  if r == None:
      c1.execute("INSERT INTO om(id,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22) VALUES(?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)",(e,))
- if (a>2) & (a<912):
+ if (a>2) & (a<12):
     await message.answer('Мм... Вы  выбили обычную письку 🥔"Мистер картошка"🥔')
     c1.execute("SELECT p1 FROM om WHERE id =?", (e,))
     row = c1.fetchone()
