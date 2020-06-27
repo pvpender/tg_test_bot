@@ -330,7 +330,7 @@ async def inv(msg: types.message):
     try:
         c1.execute("SELECT * FROM om WHERE id=?",(e,))
         row = c1.fetchone()
-        s = "%(1)i %(2)i %(3)i %(4)i %(5)i %(6)i"%{"1":row[0], "2":row[1], "3":row[2], "4":row[3], "5":row[4], "6":row[5]}
+        s = "%(1)i %(2)i %(3)i %(4)i %(5)i %(6)i"%{"1":row[1], "2":row[2], "3":row[3], "4":row[4], "5":row[5], "6":row[6]}
         await msg.answer(s)
     except:
         await msg.answer('вы ещё ни разу не крутили!')
