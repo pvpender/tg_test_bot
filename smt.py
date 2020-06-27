@@ -7,7 +7,7 @@ import random
 import time
 import os
 import sqlite3 as sq
-API_TOKEN = os.environ.get('B_T')
+API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -34,6 +34,11 @@ con = sq.connect(':memory:')
 c = con.cursor()
 c.execute("CREATE TABLE em(id integer, pol integer)")
 con.commit()
+
+con1 = sq.connect(':memory:')
+c1 = con1.cursor()
+c1.execute("CREATE TABLE om(id integer, p1 integer,p2 integer,p3 integer,p4 integer,p5 integer,p6 integer,p7 integer,p8 integer,p9 integer,p10 integer,p11 integer,p12 integer,p13 integer,p14 integer,p15 integer,p16 integer,p17 integer,p18 integer,p19 integer,p20 integer,p21 integer,p22 integer)")
+con1.commit()
 
 @dp.message_handler(commands=['dik'])
 async def echo(message: types.Message):
@@ -200,53 +205,135 @@ async def ot(msg: types.message):
 @dp.message_handler(commands= ['dikruletka'])
 async def rul(message: types.message):
  a = random.randint(1,1000)
+ e = message.from_user.id
+ c1.execute("SELECT id FROM om WHERE id = ?",(e,))
+ r = c1.fetchone()
+ if r == None:
+     c1.execute("INSERT INTO om(id,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22) VALUES(?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)",(e,))
  if (a>2) & (a<12):
-  await message.answer('Мм... Вы  выбили обычную письку 🥔"Мистер картошка"🥔')
+    await message.answer('Мм... Вы  выбили обычную письку 🥔"Мистер картошка"🥔')
+    c1.execute("SELECT p1 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p1 =? WHERE id = ?", (row[0] + 1, e))
  elif a == 1:
-  await message.answer('Ого! Вы выбили легендарную письку 💀"Х*ёвая смерть"💀')
+    await message.answer('Ого! Вы выбили легендарную письку 💀"Х*ёвая смерть"💀')
+    c1.execute("SELECT p2 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p2 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>13) & (a<23):
-  await message.answer('Мм... Вы выбили обычную письку 😷"Коронавирус"😷')
+    await message.answer('Мм... Вы выбили обычную письку 😷"Коронавирус"😷')
+    c1.execute("SELECT p3 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p3 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>24) & (a<34):
-  await message.answer('Мм... Вы выбили обычную письку 🐧"Дурка Пингвина"🐧')
+    await message.answer('Мм... Вы выбили обычную письку 🐧"Дурка Пингвина"🐧')
+    c1.execute("SELECT p4 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p4 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>35) & (a<45):
-  await message.answer('Мм... Вы выбили обычную письку 🤬"Гопник"🤬')
+    await message.answer('Мм... Вы выбили обычную письку 🤬"Гопник"🤬')
+    c1.execute("SELECT p5 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p5 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>46) & (a<56):
-  await message.answer('Мм... Вы выбили обычную письку письку 🕵🏼‍♂"Каттани"🕵🏼‍♂')
+    await message.answer('Мм... Вы выбили обычную письку письку 🕵🏼‍♂"Каттани"🕵🏼‍♂')
+    c1.execute("SELECT p6 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p6 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>57) & (a<67):
-  await message.answer('Мм... Вы выбили обычную письку 🐝"Электрический улей"🐝')
+    await message.answer('Мм... Вы выбили обычную письку 🐝"Электрический улей"🐝')
+    c1.execute("SELECT p7 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p7 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>68) & (a<69):
-  await message.answer('Ого! Вы выбили легендарную письку 🐲"Золотой дракон"🐲')
+    await message.answer('Ого! Вы выбили легендарную письку 🐲"Золотой дракон"🐲')
+    c1.execute("SELECT p8 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p8 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>70) & (a<76):
-  await message.answer('О! Вы выбили эпич. письку 🦅"Хабиб"🦅')
+    await message.answer('О! Вы выбили эпич. письку 🦅"Хабиб"🦅')
+    c1.execute("SELECT p9 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p9 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>77) & (a<83):
-  await message.answer('О! Вы выбили эпич. письку 🎲"Азарт"🎲')
+    await message.answer('О! Вы выбили эпич. письку 🎲"Азарт"🎲')
+    c1.execute("SELECT p10 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p10 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>84) & (a<89):
-  await message.answer('Ух! Вы выбили мифич. письку 👑"Король"👑')
+    await message.answer('Ух! Вы выбили мифич. письку 👑"Король"👑')
+    c1.execute("SELECT p11 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p11 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>90) & (a<91):
-  await message.answer('Ого! Вы выбили легендарную письку 🌈"Обдавбався"🌈')
+    await message.answer('Ого! Вы выбили легендарную письку 🌈"Обдавбався"🌈')
+    c1.execute("SELECT p12 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p12 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>92) & (a<97):
-  await message.answer('Ох! Вы выбили особенную письку 👴🏿"Флойд"👴🏿 ')
+    await message.answer('Ох! Вы выбили особенную письку 👴🏿"Флойд"👴🏿 ')
+    c1.execute("SELECT p13 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p13 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>98) & (a<103):
-  await message.answer('Ух! Вы выбили мифич. письку 🧻"Ценный ресурс"🧻')
+    await message.answer('Ух! Вы выбили мифич. письку 🧻"Ценный ресурс"🧻')
+    c1.execute("SELECT p14 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p14 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>104) & (a<109):
-  await message.answer('Ох! Вы выбили особенную письку 🏳‍🌈"Трубочист"🏳‍🌈')
+    await message.answer('Ох! Вы выбили особенную письку 🏳‍🌈"Трубочист"🏳‍🌈')
+    c1.execute("SELECT p15 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p15 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>110) & (a<115):
-  await message.answer('Ух! Вы выбили мифич. письку ❓"Хто я?"❓')
+    await message.answer('Ух! Вы выбили мифич. письку ❓"Хто я?"❓')
+    c1.execute("SELECT p16 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p16 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>116) & (a<126):
-  await message.answer('Хах! Вы выбили письку победителя конкурса 🇦🇶"Пингвин Дениска ебать"🇦🇶')
+    await message.answer('Хах! Вы выбили письку победителя конкурса 🇦🇶"Пингвин Дениска ебать"🇦🇶')
+    c1.execute("SELECT p17 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p17 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>127) & (a<137):
-  await message.answer('Хах! Вы выбили письку победителя конкурса 👴"Пожилой дед Шер"👴')
+    await message.answer('Хах! Вы выбили письку победителя конкурса 👴"Пожилой дед Шер"👴')
+    c1.execute("SELECT p18 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p18 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>138) & (a<146):
-  await message.answer('Хм... Вы выбили редкую письку 🚀"Space Ч."🚀')
+    await message.answer('Хм... Вы выбили редкую письку 🚀"Space Ч."🚀')
+    c1.execute("SELECT p19 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p19 =? WHERE id = ?", (row[0] + 1, e))
  elif (a>147) & (a<155):
-  await message.answer('Хм... Вы выбили редкую письку 🧠"Мозговой штурм"🧠 ')
+    await message.answer('Хм... Вы выбили редкую письку 🧠"Мозговой штурм"🧠 ')
+    c1.execute("SELECT p20 FROM om WHERE id =?", (e,))
+    row = c1.fetchone()
+    c1.execute("UPDATE om SET p20 =? WHERE id = ?", (row[0] + 1, e))
  elif (a > 156) & (a < 164):
      await message.answer('Хм... Вы выбили редкую письку 🃏"Цицерон"🃏')
+     c1.execute("SELECT p21 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p21 =? WHERE id = ?", (row[0] + 1, e))
  elif (a > 165) & (a < 173):
      await message.answer('Хм... Вы выбили редкую письку ⚱️"Антиквариат"⚱️')
+     c1.execute("SELECT p22 FROM om WHERE id =?",(e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p22 =? WHERE id = ?",(row[0]+1,e))
  else:
      await message.answer('ничего!')
 
+
+@dp.message_handler(commands=['inventory'])
+async def inv(msg: types.message):
+    e = msg.from_user.id
+    try:
+        c1.execute("SELECT * FROM om WHERE id=?",(e,))
+        row = c1.fetchone()
+        for i in range(1,23):
+            await msg.answer(row[i])
+    except:
+        await msg.answer('вы ещё ни разу не крутили!')
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
