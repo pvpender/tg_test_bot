@@ -190,7 +190,7 @@ async def ot(msg: types.message):
         print(usid)
         print(row)
         r = row[0]
-        await msg.forward(r)
+        await bot.send_message(r,msg.text)
         await state.reset_state()
         await msg.answer('gotovo')
 
