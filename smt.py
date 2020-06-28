@@ -411,7 +411,8 @@ async def rul(message: types.message):
      row = c1.fetchone()
      c1.execute("UPDATE om SET p40 =? WHERE id = ?", (row[0] + 1, e))
  else:
-     await message.answer('ничего!')
+     global ct
+     await message.answer(ct)
 
 
 @dp.message_handler(commands=['inventory'])
