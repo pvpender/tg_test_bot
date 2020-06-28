@@ -473,6 +473,6 @@ async def st(msg: types.message):
     await state.reset_state()
     await msg.answer('st')'''
 if __name__ == '__main__':
-    #executor.start_polling(dp, skip_updates=True)
+    executor.start_polling(dp, skip_updates=True)
 
 
