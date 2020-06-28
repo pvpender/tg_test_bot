@@ -7,7 +7,7 @@ import random
 import time
 import os
 import sqlite3 as sq
-API_TOKEN = os.environ.get('B_T')
+API_TOKEN =  os.environ.get('B_T')
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -37,7 +37,7 @@ con.commit()
 
 con1 = sq.connect(':memory:')
 c1 = con1.cursor()
-c1.execute("CREATE TABLE om(id integer, p1 integer,p2 integer,p3 integer,p4 integer,p5 integer,p6 integer,p7 integer,p8 integer,p9 integer,p10 integer,p11 integer,p12 integer,p13 integer,p14 integer,p15 integer,p16 integer,p17 integer,p18 integer,p19 integer,p20 integer,p21 integer,p22 integer)")
+c1.execute("CREATE TABLE om(id integer, p1 integer,p2 integer,p3 integer,p4 integer,p5 integer,p6 integer,p7 integer,p8 integer,p9 integer,p10 integer,p11 integer,p12 integer,p13 integer,p14 integer,p15 integer,p16 integer,p17 integer,p18 integer,p19 integer,p20 integer,p21 integer,p22 integer,p23 integer,p24 integer,p25 integer,p26 integer,p27 integer,p28 integer,p29 integer,p30 integer,p31 integer,p32 integer,p33 integer,p34 integer,p35 integer,p36 integer,p37 integer,p38 integer,p39 integer,p40 integer)")
 con1.commit()
 
 @dp.message_handler(commands=['dik'])
@@ -420,7 +420,7 @@ async def inv(msg: types.message):
     try:
         c1.execute("SELECT * FROM om WHERE id=?",(e,))
         row = c1.fetchone()
-        s = """        🥔Мистер картошка🥔: %(1)i 
+        s = """      ᅠᅠᅠᅠᅠ 🥔Мистер картошка🥔: %(1)i 
                   💀Х*ёвая смерть💀: %(2)i 
                   😷Коронавирус😷: %(3)i
                   🐧Дурка Пингвина🐧: %(4)i
