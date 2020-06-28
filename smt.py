@@ -7,7 +7,7 @@ import random
 import time
 import os
 import sqlite3 as sq
-API_TOKEN = '1133381423:AAEytfr8xb5xoB9iewgDWPAwKZlMgkArW_w'
+API_TOKEN = os.environ.get('B_T')
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -209,7 +209,7 @@ async def rul(message: types.message):
  c1.execute("SELECT id FROM om WHERE id = ?",(e,))
  r = c1.fetchone()
  if r == None:
-     c1.execute("INSERT INTO om(id,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22) VALUES(?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)",(e,))
+     c1.execute("INSERT INTO om(id,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40) VALUES(?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)",(e,))
  if (a>2) & (a<12):
     await message.answer('Мм... Вы  выбили обычную письку 🥔"Мистер картошка"🥔')
     c1.execute("SELECT p1 FROM om WHERE id =?", (e,))
@@ -312,14 +312,104 @@ async def rul(message: types.message):
     c1.execute("UPDATE om SET p20 =? WHERE id = ?", (row[0] + 1, e))
  elif (a > 156) & (a < 164):
      await message.answer('Хм... Вы выбили редкую письку 🃏"Цицерон"🃏')
+     c1.execute("SELECT p23 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p23 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 165) & (a < 173):
+     await message.answer('Хм... Вы выбили редкую письку ⚱️"Антиквариат"⚱️')
+     c1.execute("SELECT p24 FROM om WHERE id =?",(e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p24 =? WHERE id = ?",(row[0]+1,e))
+ elif (a > 183) & (a < 191):
+     await message.answer('Хм... Вы выбили редкую письку 🧝🏻‍♂"Высшая раса"🧝🏻‍♂')
      c1.execute("SELECT p21 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
      c1.execute("UPDATE om SET p21 =? WHERE id = ?", (row[0] + 1, e))
- elif (a > 165) & (a < 173):
-     await message.answer('Хм... Вы выбили редкую письку ⚱️"Антиквариат"⚱️')
-     c1.execute("SELECT p22 FROM om WHERE id =?",(e,))
+ elif (a > 174) & (a < 182):
+     await message.answer('Хм... Вы выбили редкую письку 🌵"Мескалито"🌵')
+     c1.execute("SELECT p22 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
-     c1.execute("UPDATE om SET p22 =? WHERE id = ?",(row[0]+1,e))
+     c1.execute("UPDATE om SET p22 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 192) & (a < 198):
+     await message.answer('О! Вы выбили эпич. письку 🦾"Большие возможности"🦾')
+     c1.execute("SELECT p25 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p25 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 199) & (a < 205):
+     await message.answer('О! Вы выбили эпич. письку 🦂"Скорпион"🦂')
+     c1.execute("SELECT p26 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p26 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 206) & (a < 211):
+     await message.answer('Ух! Вы выбили мифич. письку 🐉"Брюс Ли"🐉')
+     c1.execute("SELECT p27 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p27 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 212) & (a < 217):
+     await message.answer('Ух! Вы выбили мифич. письку 🍬"Сладость"🍬')
+     c1.execute("SELECT p28 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p28 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 218) & (a < 226):
+     await message.answer('Хм... Вы выбили редкую письку 🪓"Дровосек"🪓')
+     c1.execute("SELECT p29 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p29 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 227) & (a < 235):
+     await message.answer('Хм... Вы выбили редкую письку 🥃"Пьющий за лицемеров"🥃')
+     c1.execute("SELECT p30 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p30 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 236) & (a < 237):
+     await message.answer('Уого! Вы выбили легендарную письку 🤖"COOLBOT"🤖')
+     c1.execute("SELECT p31 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p31 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 238) & (a < 248):
+     await message.answer('Мм... Вы выбили обычную письку 🐓"Petuh"🐓')
+     c1.execute("SELECT p32 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p32 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 249) & (a < 255):
+     await message.answer('О! Вы выбили эпич. письку 🎩"Джентльмен"🎩')
+     c1.execute("SELECT p33 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p33 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 256) & (a < 262):
+     await message.answer('О! Вы выбили эпич. письку 💋"Сладкий поцелуй"💋')
+     c1.execute("SELECT p34 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p34 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 263) & (a < 269):
+     await message.answer('О! Вы выбили эпич. письку 🛸"Н.Л.П."🛸')
+     c1.execute("SELECT p35 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p35 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 270) & (a < 280):
+     await message.answer('Мм... Вы выбили обычную письку 🍀"Лепрекон"🍀')
+     c1.execute("SELECT p36 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p36 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 281) & (a < 291):
+     await message.answer('Мм... Вы выбили обычную письку 🥶"Морозная свежесть"🥶')
+     c1.execute("SELECT p37 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p37 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 292) & (a < 302):
+     await message.answer('Мм... Вы выбили обычную письку 👹"Чорт"👹')
+     c1.execute("SELECT p38 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p38 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 303) & (a < 311):
+     await message.answer('Хм... Вы выбили редкую письку 🍁"Кленовое счастье"🍁')
+     c1.execute("SELECT p39 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p39 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 312) & (a < 320):
+     await message.answer('Хм... вы выбили редкую письку 👳🏾‍♂"Калькулятор Ахмеда"👳🏾‍♂')
+     c1.execute("SELECT p40 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p40 =? WHERE id = ?", (row[0] + 1, e))
  else:
      await message.answer('ничего!')
 
@@ -330,50 +420,52 @@ async def inv(msg: types.message):
     try:
         c1.execute("SELECT * FROM om WHERE id=?",(e,))
         row = c1.fetchone()
-        s = """🍌Банан🍌: %(1)i 
-       💀Х*ёвая смерть💀: %(2)i 
-        🦠Коронавирус🦠: %(3)i
-🐧Дурка Пингвина🐧:%(4)i
-🤬Гопник🤬:%(5)i
-🕵🏼‍♂Каттани🕵🏼‍♂:%(6)i
-🐝Электрический улей🐝:%(7)i
-🐲Золотой дракон🐲:%(8)i
-🦅Хабиб🦅:%(9)i
-🎲Азарт🎲:%(10)i
-👑Король👑:%(11)i
-🌈Обдавбався🌈:%(12)i
-👴🏿Флойд👴🏿:%(13)i
-🧻Ценный ресурс🧻:%(14)i
-🏳‍🌈Трубочист🏳‍🌈:%(15)i
-❓Хто я?❓:%(16)i
-🇦🇶Пингвин Дениска ебать🇦🇶:%(17)i
-👴Пожилой дед Шер👴:%(18)i
-🚀Space Ч.🚀:%(19)i
-🧠Мозговой штурм🧠:%(20)i
-🧝🏻‍♂Высшая раса🧝🏻‍♂:%(21)i
-🌵Мескалито🌵:%(22)i
-🃏Цицерон🃏:%(23)i
-⚱️Антиквариат⚱️:%(24)i
-🦾Большие возможности🦾:%(25)i
-🦂Скорпион🦂:%(26)i
-🐉Брюс Ли🐉:%(27)i
-🍬Сладость🍬:%(28)i
-🪓Дровосек🪓:%(29)i
-🥃 Пьющий за лицемеров🥃:%(30)i
-🤖COOLBOT🤖:%(31)i
-🐓Petuh🐓:%(32)i
-🎩Джентльмен🎩:%(33)i
-💋Сладкий поцелуй💋:%(34)i
-🛸Н.Л.П.🛸:%(35)i
-🍀Лепрекон🍀:%(36)i
-🥶Морозная свежесть🥶:%(37)i
-👹Чорт👹:%(38)i
-🍁Кленовое счастье🍁:%(39)i
-👳🏾‍♂Калькулятор Ахмеда👳🏾‍♂:%(40)i
- """%{"1":row[1], "2":row[2], "3":row[3], "4":row[4], "5":row[5], "6":row[6], "7":row[7], "8":row[8], "9":row[9], "10":row[10], "11":row[11], "12":row[12], "13":row[13], "14":row[14], "15":row[15], "16":row[16], "17":row[17], "18":row[18], "19":row[19], "20":row[20], "21":row[21], "22":row[22], "23":row[23], "24":row[24], "25":row[25], "26":row[26], "27":row[27], "28":row[28], "29":row[29], "30":row[30], "31":row[31], "32":row[32], "33":row[33, "34":row[34], "35":row[35], "36":row[36], "37":row[37], "38":row[38], "39":row[39], "40":row[40]}
+        s = """        🥔Мистер картошка🥔: %(1)i 
+                  💀Х*ёвая смерть💀: %(2)i 
+                  😷Коронавирус😷: %(3)i
+                  🐧Дурка Пингвина🐧: %(4)i
+                  🤬Гопник🤬: %(5)i
+                  🕵🏼‍♂Каттани🕵🏼‍♂: %(6)i
+                  🐝Электрический улей🐝: %(7)i
+                  🐲Золотой дракон🐲: %(8)i
+                  🦅Хабиб🦅: %(9)i
+                  🎲Азарт🎲: %(10)i
+                  👑Король👑: %(11)i
+                  🌈Обдавбався🌈: %(12)i
+                  👴🏿Флойд👴🏿: %(13)i
+                  🧻Ценный ресурс🧻: %(14)i
+                  🏳‍🌈Трубочист🏳‍🌈: %(15)i
+                  ❓Хто я?❓: %(16)i
+                  🇦🇶Пингвин Дениска ебать"🇦🇶: %(17)i
+                  👴Пожилой дед Шер👴: %(18)i
+                  🚀Space Ч.🚀: %(19)i
+                  🧠Мозговой штурм🧠: %(20)i
+                  🧝🏻‍♂Высшая раса🧝🏻‍♂: %(21)i
+                  🌵Мескалито🌵: %(22)i
+                  🃏Цицерон🃏:%(23)i
+                  Антиквариат⚱️:%(24)i
+                  🦾Большие возможности🦾:%(25)i
+                  🦂Скорпион🦂:%(26)i
+                  🐉Брюс Ли🐉:%(27)i
+                  🍬Сладость🍬:%(28)i
+                  🪓Дровосек🪓:%(29)i
+                  🥃 Пьющий за лицемеров🥃:%(30)i
+                  🤖COOLBOT🤖:%(31)i
+                  🐓Petuh🐓:%(32)i
+                  🎩Джентльмен🎩:%(33)i
+                  💋Сладкий поцелуй💋:%(34)i
+                  🛸Н.Л.П.🛸:%(35)i
+                  🍀Лепрекон🍀:%(36)i
+                  🥶Морозная свежесть🥶:%(37)i
+                  👹Чорт👹:%(38)i
+                  🍁Кленовое счастье🍁:%(39)i
+                  👳🏾‍♂Калькулятор Ахмеда👳🏾‍♂:%(40)i
+        """%{"1":row[1], "2":row[2], "3":row[3], "4":row[4], "5":row[5], "6":row[6], "7":row[7], "8":row[8], "9":row[9], "10":row[10], "11":row[11], "12":row[12], "13":row[13], "14":row[14], "15":row[15], "16":row[16], "17":row[17], "18":row[18], "19":row[19], "20":row[20], "21":row[21], "22":row[22], "23":row[23],"24":row[24],"25":row[25],"26":row[26],"27":row[27],"28":row[28],"29":row[29],"30":row[30],"31":row[31],"32":row[32],"33":row[33],"34":row[34],"35":row[35],"36":row[36],"37":row[37],"38":row[38],"39":row[39],"40":row[40],}
         await msg.answer(s)
     except:
         await msg.answer('вы ещё ни разу не крутили!')
+
+
 '''@dp.message_handler(state='*',commands= ['st'])
 async def st(msg: types.message):
     state = dp.current_state(user=msg.from_user.id)
@@ -381,3 +473,5 @@ async def st(msg: types.message):
     await msg.answer('st')'''
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
+
+
