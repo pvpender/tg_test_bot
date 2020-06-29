@@ -245,7 +245,7 @@ async def rul(message: types.message):
     c1.execute("SELECT p7 FROM om WHERE id =?", (e,))
     row = c1.fetchone()
     c1.execute("UPDATE om SET p7 =? WHERE id = ?", (row[0] + 1, e))
- elif (a>68) & (a<69):
+ elif (a>68) & (a<609):
     await message.answer('Ого! Вы выбили легендарную письку 🐲"Золотой дракон"🐲')
     c1.execute("SELECT p8 FROM om WHERE id =?", (e,))
     row = c1.fetchone()
@@ -360,7 +360,7 @@ async def rul(message: types.message):
      c1.execute("SELECT p30 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
      c1.execute("UPDATE om SET p30 =? WHERE id = ?", (row[0] + 1, e))
- elif (a > 236) & (a < 237):
+ elif (a > 236) & (a < 2307):
      await message.answer('Уого! Вы выбили легендарную письку 🤖"COOLBOT"🤖')
      c1.execute("SELECT p31 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
