@@ -38,7 +38,7 @@ con.commit()
 
 con1 = sq.connect(':memory:')
 c1 = con1.cursor()
-c1.execute("CREATE TABLE om(id integer, p1 integer,p2 integer,p3 integer,p4 integer,p5 integer,p6 integer,p7 integer,p8 integer,p9 integer,p10 integer,p11 integer,p12 integer,p13 integer,p14 integer,p15 integer,p16 integer,p17 integer,p18 integer,p19 integer,p20 integer,p21 integer,p22 integer,p23 integer,p24 integer,p25 integer,p26 integer,p27 integer,p28 integer,p29 integer,p30 integer,p31 integer,p32 integer,p33 integer,p34 integer,p35 integer,p36 integer,p37 integer,p38 integer,p39 integer,p40 integer)")
+c1.execute("CREATE TABLE om(id integer, p1 integer,p2 integer,p3 integer,p4 integer,p5 integer,p6 integer,p7 integer,p8 integer,p9 integer,p10 integer,p11 integer,p12 integer,p13 integer,p14 integer,p15 integer,p16 integer,p17 integer,p18 integer,p19 integer,p20 integer,p21 integer,p22 integer,p23 integer,p24 integer,p25 integer,p26 integer,p27 integer,p28 integer,p29 integer,p30 integer,p31 integer,p32 integer,p33 integer,p34 integer,p35 integer,p36 integer,p37 integer,p38 integer,p39 integer,p40 integer, p41 integer, p42 integer)")
 con1.commit()
 
 @dp.message_handler(commands=['dik'])
@@ -218,7 +218,7 @@ async def rul(message: types.message):
  c1.execute("SELECT id FROM om WHERE id = ?",(e,))
  r = c1.fetchone()
  if r == None:
-     c1.execute("INSERT INTO om(id,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40) VALUES(?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)",(e,))
+     c1.execute("INSERT INTO om(id,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40, p41, p42) VALUES(?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)",(e,))
  if (a>2) & (a<12):
     await message.answer('Мм... Вы  выбили обычную письку 🥔"Мистер картошка"🥔')
     c1.execute("SELECT p1 FROM om WHERE id =?", (e,))
@@ -419,8 +419,19 @@ async def rul(message: types.message):
      c1.execute("SELECT p40 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
      c1.execute("UPDATE om SET p40 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 325) & (a < 330):
+     await message.answer('Ух! Вы выбили мифич. письку 🏯"Секиро"🏯')
+     c1.execute("SELECT p41 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p41 =? WHERE id = ?", (row[0] + 1, e))
+ elif (a > 331) & (a < 336):
+     await message.answer('Ух! Вы выбили мифич. письку 🍺"Геральт"🍺')
+     c1.execute("SELECT p42 FROM om WHERE id =?", (e,))
+     row = c1.fetchone()
+     c1.execute("UPDATE om SET p42 =? WHERE id = ?", (row[0] + 1, e))
  else:
-     await message.answer('ничего!')
+     global ct
+     await message.answer(ct)
 
 
 @dp.message_handler(commands=['inventory'])
