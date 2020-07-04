@@ -190,6 +190,7 @@ async def otpravka(msg: types.message):
 
 @dp.message_handler(commands=['otv'])
 async def ot(msg: types.message):
+  try:
     state = dp.current_state(user= msg.from_user.id)
     global usid
     usid = msg.reply_to_message.message_id
@@ -207,7 +208,8 @@ async def ot(msg: types.message):
         await bot.send_message(r,msg.text)
         await state.reset_state()
         await msg.answer('gotovo')
-
+  except:
+        await msg.answer('ошибка')
 
 
 
