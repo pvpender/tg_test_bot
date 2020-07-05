@@ -200,7 +200,7 @@ async def ot(msg: types.message):
 
     @dp.message_handler(state=TS.T_S3)
     async def to(msg):
-
+      try:
         c.execute("SELECT pol FROM em WHERE id =?",(usid-1,))
         row = c.fetchone()
         print(usid)
@@ -209,8 +209,11 @@ async def ot(msg: types.message):
         await bot.send_message(r,msg.text)
         await state.reset_state()
         await msg.answer('gotovo')
+      except:
+         await msg.answer('Ошибка')
+         await state.reset_state()
   except:
-        await msg.answer('ошибка')
+        await msg.answer('Ошибка')
 
 
 
