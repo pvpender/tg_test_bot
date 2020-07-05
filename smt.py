@@ -494,7 +494,7 @@ async def inv(msg: types.message):
 async def sav(msg : types.message):
      while True:
         await msg.answer('сохранение')
-        await asyncio.sleep(3)
+        await asyncio.sleep(1740)
 
 
 '''@dp.message_handler(state='*',commands= ['st'])
