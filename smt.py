@@ -9,6 +9,7 @@ import os
 import sqlite3 as sq
 import time
 API_TOKEN =  os.environ.get('B_T')
+import asyncio 
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -488,6 +489,11 @@ async def inv(msg: types.message):
         await msg.answer(s)
     except:
         await msg.answer('вы ещё ни разу не крутили!')
+
+@dp.message_handler(commands=['save'])
+async def sav(msg : types.message):
+     await msg.answer('сохранение')
+     await asyncio.sleep(3)
 
 
 '''@dp.message_handler(state='*',commands= ['st'])
