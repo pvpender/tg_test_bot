@@ -435,7 +435,7 @@ async def rul(message: types.message):
      c1.execute("SELECT p42 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
      c1.execute("UPDATE om SET p42 =? WHERE id = ?", (row[0] + 1, e))
- elif (a > 336) & (a < 342):
+ elif (a > 336) & (a < 1000):
      await message.answer('Ух! Вы выбили мифич. письку 🇺🇲Америка🇺🇲')
      c1.execute("SELECT p43 FROM om WHERE id =?", (e,))
      row = c1.fetchone()
